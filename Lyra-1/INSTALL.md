@@ -21,10 +21,11 @@ pip install transformer-engine[pytorch]==1.12.0
 git clone https://github.com/NVIDIA/apex
 CUDA_HOME=$CONDA_PREFIX pip install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --config-settings "--build-option=--cpp_ext" --config-settings "--build-option=--cuda_ext" ./apex
 # Install MoGe for inference.
-pip install git+https://github.com/microsoft/MoGe.git
-# Install Mamba for reconstruction model.
+pip install git+https://github.com/microsoft/MoGe.git for reconstruction model.
 pip install --no-build-isolation "git+https://github.com/state-spaces/mamba@v2.2.4"
 ```
+
+ **Note (personal):** The Apex build step takes a long time (~15-20 min). Make sure you have enough disk space (~10 GB free) before starting the installation.
 
 You can test the environment setup for inference with
 ```bash
@@ -67,24 +68,3 @@ Under the checkpoint repository `checkpoints/<model-name>`, we provide the encod
 │   │   ├── autoencoder.jit
 │   │   ├── model.pt
 ```
-
-### Download GEN3C checkpoints
-
-1. Generate a [Hugging Face](https://huggingface.co/settings/tokens) access token (if you haven't done so already). Set the access token to `Read` permission (default is `Fine-grained`).
-
-2. Log in to Hugging Face with the access token:
-   ```bash
-   huggingface-cli login
-   ```
-
-3. Download the GEN3C model weights from [Hugging Face](https://huggingface.co/nvidia/GEN3C-Cosmos-7B):
-   ```bash
-   CUDA_HOME=$CONDA_PREFIX PYTHONPATH=$(pwd) python scripts/download_gen3c_checkpoints.py --checkpoint_dir checkpoints
-   ```
-
-### Download Lyra checkpoints
-
-1. Download the Lyra model weights from [Hugging Face](https://huggingface.co/nvidia/Lyra):
-   ```bash
-   CUDA_HOME=$CONDA_PREFIX PYTHONPATH=$(pwd) python scripts/download_lyra_checkpoints.py --checkpoint_dir checkpoints
-   ```
