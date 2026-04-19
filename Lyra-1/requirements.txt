@@ -1,0 +1,36 @@
+# Core dependencies for Lyra-1
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.37.0
+accelerate>=0.26.0
+peft>=0.8.0
+bitsandbytes>=0.41.0
+
+# Data processing
+numpy>=1.24.0
+pillow>=10.0.0
+opencv-python>=4.8.0
+decord>=0.6.0
+
+# Training utilities
+deepspeed>=0.12.0
+einops>=0.7.0
+timm>=0.9.0
+
+# Evaluation and logging
+wandb>=0.16.0
+tensorboard>=2.14.0
+nltk>=3.8.0
+pycocoevalcap>=1.2
+
+# Multimodal
+open_clip_torch>=2.23.0
+sentencepiece>=0.1.99
+tokenizers>=0.15.0
+
+# Utilities
+tqdm>=4.66.0
+yaml>=0.2.5
+requests>=2.31.0
+huggingface_hub>=0.20.0
+safetensors>=0.4.0
